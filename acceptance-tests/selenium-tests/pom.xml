@@ -1,0 +1,19 @@
+<project>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>root.project.servlets</groupId>
+   <artifactId>selenium-tests</artifactId>
+   <packaging>war</packaging>
+   <name>servlet</name>
+   <parent>
+      <groupId>root.project</groupId>
+      <artifactId>acceptance-tests</artifactId>
+      <version>1.0</version>
+   </parent>
+   <dependencies>
+      <dependency>
+         <groupId>root.project</groupId>
+         <artifactId>primary-source</artifactId>
+         <scope>provided</scope>
+      </dependency>
+   </dependencies>
+</project>
