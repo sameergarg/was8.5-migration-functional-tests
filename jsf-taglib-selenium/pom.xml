@@ -11,6 +11,29 @@
     <name>WAS 8.5 migration functional test :: JSF Taglib selenium tests web application</name>
     <url>http://maven.apache.org</url>
     <dependencies>
+        <!-- jsf specific dependencies -->
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>1.1_02</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>1.1_02</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-digester</groupId>
+            <artifactId>commons-digester</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <!-- test scoped -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
