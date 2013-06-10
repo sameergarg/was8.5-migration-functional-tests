@@ -1,4 +1,4 @@
-<%@taglib uri="/WEB-INF/jsf_core.tld" prefix="f"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 
 <HTML>
     <HEAD>
