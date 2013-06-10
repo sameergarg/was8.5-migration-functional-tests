@@ -1,7 +1,12 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="/WEB-INF/jsf_core.tld" prefix="f"%>
 
-<html>
-<body>
-<h2>jsf-taglib-selenium Hello World!</h2>
-</body>
-</html>
+<HTML>
+    <HEAD>
+        <TITLE>page title</TITLE>
+    </HEAD>
+    <f:view>
+        <BODY>
+            <P>Hello world.</P>
+        </BODY>
+    </f:view>
+</HTML>
