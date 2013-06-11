@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="2.0" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">
+	<tlib-version>R5_OMM1.1 SA SG Release 1.44</tlib-version>
+	<short-name>lf</short-name>
+	<uri>http://www.lloydstsb.com/faces/facestags</uri>		
+	<display-name>Galaxy JSF Tag Library R5_OMM1.1 SA SG Release 1.44 </display-name>
+	<description><![CDATA[Galaxy JSF tag library that contains specific internet banking components 
+	and other extended RI tags for maximum flexibility.<br/>The validators of this tag library works in tandem with client-side JavaScript to provide client-side validation.<br/><br/>
+	This version is compatible with the LBi vR5_OMM1.1 SA SG Release 1.44 html templates.
+	]]></description>
+	<info>Last Published: 23 Apr 2012</info>
+    <tag>
+        <description>
+            <![CDATA[Intended for use in situations when only one
+            UIComponent child can be nested, such as in the case of facets.
+            If the "style" or "styleClass" attributes are present, and the "layout"
+            attribute is present with a value of "block", render a "div" element,
+            outputting the value of the "style" attribute as the value of the
+            "style" attribute and the value of the "styleClass" attribute as the
+            value of the "class" attribute.  Otherwise, if the "layout" attribute
+            is not present, or the "layout" attribute contains a value other than
+            "block", render a "span" element, outputting the value of the
+            "style" attribute as the value of the "style" attribute, and the value
+            of the "styleClass" attribute as the value of the "class"
+            attribute.<br/><br/>
+            <b><i>NOTE</i> as a general rule do NOT use this tag to render html div elements that have
+            a style class of "FormField" and/or "FormFieldInner", as the field entry tags (e.g. inputText, selectOneMenu etc.)
+            render this by default or via the panelLabelAndMessage tag.</b>
+            ]]>
+        </description>
+        <name>panelGroup</name>
+        <tag-class>com.lloydstsb.faces.taglib.html.PanelGroupTag</tag-class>
+        <body-content>JSP</body-content>
+        <example><![CDATA[
+<b>Example 1:</b><br/>
+<br/>
+&lt;lf:panelList&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;lf:panelGroup&gt;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;lf:outputLink value="#" text="Link item 1a"/&gt;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;lf:outputLink value="#" text="Link item 1b"/&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;/lf:panelGroup&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;lf:outputLink value="#" text="Link item 2"/&gt;<br/>
+&lt;/lf:panelList&gt;<br/>
+<br/>
+<b>Html Output:</b><br/>
+<br/>
+&lt;ul class="linkList"&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;li&gt;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#"&gt;Link item 1a&lt;/a&gt;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#"&gt;Link item 1b&lt;/a&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;/li&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;li&gt;<br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;a href="#"&gt;Link item 2&lt;/a&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;/li&gt;<br/>
+&lt;/ul&gt;<br/>
+<br/>
+<b>Screenshot:</b><br/>
+<img src="../img/examples/PanelGroup1.png"/><br/>
+<br/>
+<b>Example 2:</b><br/>
+<br/>
+&lt;lf:panelGroup styleClass="radioGroup clearfix"&gt;<br/>
+&#160;&#160;&#160;&#160;.<br/>
+&#160;&#160;&#160;&#160;.<br/>
+&lt;/lf:panelGroup&gt;<br/>
+<br/>
+<b>Html Output:</b><br/>
+<br/>
+&lt;div class="radioGroup clearfix"&gt;<br/>
+&#160;&#160;&#160;&#160;.<br/>
+&#160;&#160;&#160;&#160;.<br/>
+&lt;/div&gt;<br/>
+<br/>
+<b>Screenshot: </b>N/A<br/>
+<br/>
+<b>Example 3:</b><br/>
+<br/>
+&lt;lf:panelGroup layout="paragraph"&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;lf:graphicImage value="/assets/personalbanking/img/logo.png" alt="Lloyds logo"/&gt;<br/>
+&lt;/lf:panelGroup&gt;<br/>
+<br/>
+<b>Html Output:</b><br/>
+<br/>
+&lt;p&gt;<br/>
+&#160;&#160;&#160;&#160;&lt;img src="/ib/assets/personalbanking/img/logo.png" alt="Lloyds logo" /&gt;<br/>
+&lt;/p&gt;<br/>
+<br/>
+<b>Screenshot:</b><br/>
+<img src="../img/examples/PanelGroup3.png"/>
+		]]></example>
+        <attribute>
+            <description>
+                <![CDATA[The component identifier for this component.  This value must be
+                unique within the closest parent component that is a naming
+                container.]]>
+            </description>
+            <name>id</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Flag indicating whether or not this component should be rendered
+                (during Render Response Phase), or processed on any subsequent
+                form submit.  The default value for this property is true.]]>
+            </description>
+            <name>rendered</name>
+            <required>false</required>
+            <deferred-value>
+                <type>boolean</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[The type of layout markup to use when rendering this group.
+				If not set then a div will only be rendered if one or more of the following attributes
+				has been set: style, styleClass, or id.
+				If set then child components are rendered inside a html element. The following layout
+				values determine what that element is:<br/>
+				<ul>
+					<li>"block" - html &lt;div&gt; element.</li>
+					<li>"emphasis" - html &lt;em&gt; element.</li>
+					<li>"fieldset" - html &lt;fieldset&gt; element.</li>
+					<li>"heading1" to "heading6" – html &lt;hN&gt element in the specified size N.</li>
+					<li>"inline" - html &lt;span&gt; element.</li>
+					<li>"legend" - html &lt;legend&gt; element.</li>
+					<li>"listitem" - html &lt;li&gt; element.</li>
+					<li>"paragraph" - html &lt;p&gt; element.</li>
+					<li>"strong" - html &lt;strong&gt; element.</li>
+				</ul>]]>
+            </description>
+            <name>layout</name>
+            <required>false</required>
+            <deferred-value>
+                <type>java.lang.String</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[CSS style(s) to be applied when this component is rendered.]]>
+            </description>
+            <name>style</name>
+            <required>false</required>
+            <deferred-value>
+                <type>java.lang.String</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Space-separated list of CSS style class(es) to be applied when
+                this element is rendered.  This value must be passed through
+                as the "class" property on generated markup.]]>
+            </description>
+            <name>styleClass</name>
+            <required>false</required>
+            <deferred-value>
+                <type>java.lang.String</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <description>
+                <![CDATA[Space-separated list of CSS style class(es) to be applied when
+                this element is true.  This value when true the styleClass must be passed through
+                as the "class" property on generated markup.]]>
+            </description>
+            <name>toggleStyle</name>
+            <required>false</required>
+            <deferred-value>
+                <type>boolean</type>
+            </deferred-value>
+        </attribute>
+        <attribute>
+            <description>The ValueExpression linking this component to a property in a backing bean</description>
+            <name>binding</name>
+            <required>false</required>
+            <deferred-value>
+                <type>javax.faces.component.UIComponent</type>
+            </deferred-value>
+        </attribute>
+    </tag>
+ </taglib>

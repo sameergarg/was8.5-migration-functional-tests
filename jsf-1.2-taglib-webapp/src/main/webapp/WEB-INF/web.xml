@@ -10,29 +10,6 @@
         <listener-class>com.sun.faces.config.ConfigureListener</listener-class>
     </listener>
 
-    <context-param>
-        <description>
-            The default suffix for extension-mapped resources that
-            contain JSF components. Default is '.jsp'.
-        </description>
-        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
-        <param-value>.jsp</param-value>
-    </context-param>
-
-    <context-param>
-        <description>
-            Comma-delimited list of context-relative resource paths
-            under which the JSF implementation will look for application
-            configuration resources, before loading a configuration
-            resource named /WEB-INF/facesconfig.xml (if such a resource
-            exists).
-        </description>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>
-            faces-config.xml
-        </param-value>
-    </context-param>
-
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>

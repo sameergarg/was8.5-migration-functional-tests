@@ -54,8 +54,74 @@
 
 		</plugins>
 	</build>
-	
-	<profiles>
+
+    <profiles>
+        <profile>
+            <id>was6</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <!-- Generates standard WebSphere deployment descriptors -->
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>was6-maven-plugin</artifactId>
+                        <version>1.2</version>
+                        <inherited>false</inherited>
+                        <configuration>
+                            <!-- All other configuration settings are inherited from parent POM -->
+                            <earFile>target/jsf-taglib-functional-test.ear</earFile>
+                            <wasHome>/development/server/ibm/was/6.1/</wasHome>
+                            <username>admin</username>
+                            <password>admin</password>
+                            <applicationName>jsf-taglib-functional-test</applicationName>
+                            <port>8880</port>
+                            <updateExisting>false</updateExisting>
+                            <conntype>SOAP</conntype>
+                            <!--<host>localhost</host> <profileName>AppSrv01</profileName> -->
+                            <verbose>true</verbose>
+                            <virtualHost>default_host</virtualHost>
+                            <workingDirectory>target/was6-maven-plugin</workingDirectory>
+                            <quiet>false</quiet>
+                            <logFile>${project.build.directory}/was.log</logFile>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>was-ear-package</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>
+                                        wsDefaultBindings
+                                    </goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>uninstall-if-present</id>
+                                <phase>pre-clean</phase>
+                                <configuration>
+                                    <failOnError>false</failOnError>
+                                    <!-- Don't care if this fails - it might not have been there in the
+                                                 first place -->
+                                </configuration>
+                                <goals>
+                                    <goal>wsUninstallApp</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>deploy-app</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>installApp</goal>
+                                    <goal>wsStartApp</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
 	</profiles>
 	
